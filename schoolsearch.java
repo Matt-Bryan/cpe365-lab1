@@ -54,7 +54,7 @@ public class schoolsearch {
 		System.out.println("Please enter a command:");
 		String input = in.nextLine();
 		while (!input.equals("Q") && !input.equals("Quit")) {
-			String[] cmdParts = input.split(":");
+			String[] cmdParts = input.split(": ");
 			if (cmdParts.length == 1) {
 				if (cmdParts[0].equals("I") || cmdParts[0].equals("Info")) {
 					infoPrint();
@@ -65,8 +65,20 @@ public class schoolsearch {
 			}
 			else if (cmdParts.length == 2) {
 				//Everything else
+				ArrayList<ArrayList<String>> results = new ArrayList<ArrayList<String>>();
 				if (cmdParts[0].equals("S") || cmdParts[0].equals("Student")) {
 					//Student
+					for (ArrayList<String> cur : data) {
+						if (cmdParts[1].equals(cur.get(0))) {
+							results.add(cur);
+						}
+					}
+					for (ArrayList<String> cur : results) {
+						System.out.println("Name: " + cur.get(0) + "," + cur.get(1));
+						System.out.println("Grade: " + cur.get(2));
+						System.out.println("Classroom: " + cur.get(3));
+						System.out.println("Teacher: " + cur.get(6) + "," + cur.get(7));
+					}
 				}
 				else if (cmdParts[0].equals("T") || cmdParts[0].equals("Teacher")) {
 					//Teacher
