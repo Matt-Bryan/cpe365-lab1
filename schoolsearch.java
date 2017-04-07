@@ -40,6 +40,7 @@ public class schoolsearch {
 			System.out.println("File not found");
 			System.exit(-1);
 		}
+
 		System.out.println("Command Menu:");
 		System.out.println("S[tudent]: <lastname> [B[us]]");
 		System.out.println("T[eacher]: <lastname>");
@@ -47,11 +48,11 @@ public class schoolsearch {
 		System.out.println("G[rade]: <number> [[H[igh]]|[L[ow]]]");
 		System.out.println("A[verage]: <number>");
 		System.out.println("I[nfo]");
-		System.out.println("Q[uit]");
+		System.out.println("Q[uit]\n");
+
 		Scanner in = new Scanner(System.in);
-		String input;
-		System.out.println("Enter command");
-		input = in.nextLine();
+		System.out.println("Please enter a command:");
+		String input = in.nextLine();
 		while (!input.equals("Q") && !input.equals("Quit")) {
 			String[] cmdParts = input.split(":");
 			if (cmdParts.length == 1) {
@@ -64,11 +65,29 @@ public class schoolsearch {
 			}
 			else if (cmdParts.length == 2) {
 				//Everything else
+				if (cmdParts[0].equals("S") || cmdParts[0].equals("Student")) {
+					//Student
+				}
+				else if (cmdParts[0].equals("T") || cmdParts[0].equals("Teacher")) {
+					//Teacher
+				}
+				else if (cmdParts[0].equals("B") || cmdParts[0].equals("Bus")) {
+					//Bus
+				}
+				else if (cmdParts[0].equals("G") || cmdParts[0].equals("Grade")) {
+					//Grade
+				}
+				else if (cmdParts[0].equals("A") || cmdParts[0].equals("Average")) {
+					//Average
+				}
+				else {
+					System.out.println("Invalid Command");
+				}
 			}
 			else {
-				System.out.println("Invalid Command: Syntax Error");
+				System.out.println("Command Syntax Error");
 			}
-			System.out.println("Enter command");
+			System.out.println("Please enter a command:");
 			input = in.nextLine();
 		}
 	}
