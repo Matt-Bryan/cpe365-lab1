@@ -70,6 +70,89 @@ public class schoolsearch {
 			System.out.println("Command Syntax Error");
 	}
 
+	private static ArrayList<String> findGpa(ArrayList<ArrayList<String>> results, int option) {
+		ArrayList<String> curBest = results.get(0);
+
+		if (option == 0) {
+			for (ArrayList<String> cur : results) {
+				if (Float.parseFloat(cur.get(5)) > Float.parseFloat(curBest.get(5)))
+					curBest = cur;
+			}
+		}
+		else {
+			for (ArrayList<String> cur : results) {
+				if (Float.parseFloat(cur.get(5)) < Float.parseFloat(curBest.get(5)))
+					curBest = cur;
+			}
+		}
+
+		return curBest;
+	}
+	
+	private static void gradeCmd(String[] cmdParts) {
+		ArrayList<ArrayList<String>> results = new ArrayList<ArrayList<String>>();
+		String[] splitString = cmdParts[1].split("\\s+");
+
+		for (ArrayList<String> cur : data) {
+			if (splitString[0].equals(cur.get(2))) {
+				results.add(cur);
+			}
+		}
+
+		if (splitString.length == 2 && (splitString[1].equals("H") || splitString[1].equals("High"))) {
+			//High
+			ArrayList<String> newRes = findGpa(results, 0);
+
+			System.out.println("Highest GPA in grade " + splitString[0] + ": ");
+			System.out.println("Name: " + newRes.get(0) + "," + newRes.get(1));
+			System.out.println("GPA: " + newRes.get(5));
+			System.out.println("Teacher: " + newRes.get(6) + "," + newRes.get(7));
+			System.out.println("Bus: " + newRes.get(4));
+		}
+		else if (splitString.length == 2 && (splitString[1].equals("L") || splitString[1].equals("Low"))) {
+			//Low			
+			ArrayList<String> newRes = findGpa(results, 1);
+
+			System.out.println("Lowest GPA in grade " + splitString[0] + ": ");
+			System.out.println("Name: " + newRes.get(0) + "," + newRes.get(1));
+			System.out.println("GPA: " + newRes.get(5));
+			System.out.println("Teacher: " + newRes.get(6) + "," + newRes.get(7));
+			System.out.println("Bus: " + newRes.get(4));
+		}
+		else {
+			System.out.println("List of students: ");
+			for (ArrayList<String> cur : results) {
+				System.out.println(cur.get(0) + "," + cur.get(1));
+			}
+		}
+	}
+
+	private static float findAvg(ArrayList<ArrayList<String>> results) {
+		float total = 0;
+		int count = 0;
+
+		for (ArrayList<String> cur : results) {
+			total += Float.parseFloat(cur.get(5));
+			count++;
+		}
+
+		float avg = total / count;
+
+		return avg;
+	}
+
+	private static void averageCmd(String[] cmdParts) {
+		ArrayList<ArrayList<String>> results = new ArrayList<ArrayList<String>>();
+
+		for (ArrayList<String> cur : data) {
+			if (cmdParts[1].equals(cur.get(2))) {
+				results.add(cur);
+			}
+		}
+
+		System.out.println("Average GPA for grade " + cmdParts[1] + ": " + findAvg(results));
+	}
+
 	private static void teacherCmd(String[] cmdParts) {
 		ArrayList<ArrayList<String>> results = new ArrayList<ArrayList<String>>();
 
@@ -84,18 +167,21 @@ public class schoolsearch {
 		}
 	}
 
-	private static void gradeCmd(String[] cmdParts) {
-		
+	private static void busCmd(String[] cmdParts) {		
 		ArrayList<ArrayList<String>> results = new ArrayList<ArrayList<String>>();
 
 		for (ArrayList<String> cur : data) {
-			if (cmdParts[1].equals(cur.get(2))) {
+			if (cmdParts[1].equals(cur.get(4))) {
 				results.add(cur);
 			}
 		}
-		System.out.println("List of students: ");
+
+		System.out.println("List of students: ");		
+		
 		for (ArrayList<String> cur : results) {
-			System.out.println(cur.get(0) + "," + cur.get(1));
+			System.out.println("Name: " + cur.get(0) + "," + cur.get(1));
+			System.out.println("Grade: " + cur.get(2));
+			System.out.println("Classroom: " + cur.get(3));
 		}
 	}
 
@@ -137,6 +223,7 @@ public class schoolsearch {
 				}
 				else if (cmdParts[0].equals("B") || cmdParts[0].equals("Bus")) {
 					//Bus
+					busCmd(cmdParts);
 				}
 				else if (cmdParts[0].equals("G") || cmdParts[0].equals("Grade")) {
 					//Grade
@@ -144,6 +231,7 @@ public class schoolsearch {
 				}
 				else if (cmdParts[0].equals("A") || cmdParts[0].equals("Average")) {
 					//Average
+					averageCmd(cmdParts);
 				}
 				else {
 					System.out.println("Invalid Command");
