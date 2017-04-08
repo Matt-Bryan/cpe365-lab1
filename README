@@ -1,5 +1,7 @@
 Run Instructions:
 	javac schoolsearch.java
-	java schoolsearc
+	java schoolsearch
+
+(These are run in the Makefile, as we couldn't get the test script to work otherwise)
 
 After running the program, proceed by following on-screen instructions.
