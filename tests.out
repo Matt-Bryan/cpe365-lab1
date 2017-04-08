@@ -1,0 +1,150 @@
+Command Menu:
+S[tudent]: <lastname> [B[us]]
+T[eacher]: <lastname>
+B[us]: <number>
+G[rade]: <number> [[H[igh]]|[L[ow]]]
+A[verage]: <number>
+I[nfo]
+Q[uit]
+
+Please enter a command:
+BEX,TAMESHA,4,105,HANTZ,JED
+
+Please enter a command:
+
+Please enter a command:
+0: 0
+1: 2
+2: 13
+3: 9
+4: 15
+5: 0
+6: 21
+
+Please enter a command:
+HAVIR,BOBBIE,0
+
+Please enter a command:
+CORKER,CARTER
+IMMERMAN,DEVIN
+RAPOSE,ALONZO
+OGAS,ERVIN
+MASSART,ELDON
+BEX,TAMESHA
+
+Please enter a command:
+
+Please enter a command:
+OOKUS,XUAN
+ELHADDAD,SHANTE
+BRODERSEN,HYE
+SWEDLUND,SHARRI
+CIGANEK,MANIE
+COVINGTON,TOMAS
+EARLY,TORY
+LINHART,LELA
+THEUNISSEN,GRACE
+
+Please enter a command:
+
+Please enter a command:
+OGAS,ERVIN,4,105
+GUICE,CODI,4,112
+BREVO,JANNETTE,6,111
+VANCOTT,MIKE,2,108
+GLOR,HUNG,4,112
+SAELEE,DANILO,1,103
+GUM,NOAH,4,112
+BERBES,DICK,2,108
+MULGREW,RANDELL,2,108
+NOVICK,ROLLAND,4,112
+THEUNISSEN,GRACE,3,110
+TOWLEY,LANE,2,108
+
+Please enter a command:
+
+Please enter a command:
+SWEDLUND,SHARRI,55,3.24,FAFARD,ROCIO
+
+Please enter a command:
+CIGANEK,MANIE,53,2.79,FAFARD,ROCIO
+
+Please enter a command:
+2: 2.9461534
+
+Please enter a command:
+
+Please enter a command:
+Invalid Command
+
+Please enter a command:
+Command Syntax Error
+
+Please enter a command:
+BEX,TAMESHA,4,105,HANTZ,JED
+
+Please enter a command:
+
+Please enter a command:
+0: 0
+1: 2
+2: 13
+3: 9
+4: 15
+5: 0
+6: 21
+
+Please enter a command:
+HAVIR,BOBBIE,0
+
+Please enter a command:
+CORKER,CARTER
+IMMERMAN,DEVIN
+RAPOSE,ALONZO
+OGAS,ERVIN
+MASSART,ELDON
+BEX,TAMESHA
+
+Please enter a command:
+
+Please enter a command:
+OOKUS,XUAN
+ELHADDAD,SHANTE
+BRODERSEN,HYE
+SWEDLUND,SHARRI
+CIGANEK,MANIE
+COVINGTON,TOMAS
+EARLY,TORY
+LINHART,LELA
+THEUNISSEN,GRACE
+
+Please enter a command:
+
+Please enter a command:
+OGAS,ERVIN,4,105
+GUICE,CODI,4,112
+BREVO,JANNETTE,6,111
+VANCOTT,MIKE,2,108
+GLOR,HUNG,4,112
+SAELEE,DANILO,1,103
+GUM,NOAH,4,112
+BERBES,DICK,2,108
+MULGREW,RANDELL,2,108
+NOVICK,ROLLAND,4,112
+THEUNISSEN,GRACE,3,110
+TOWLEY,LANE,2,108
+
+Please enter a command:
+
+Please enter a command:
+SWEDLUND,SHARRI,55,3.24,FAFARD,ROCIO
+
+Please enter a command:
+CIGANEK,MANIE,53,2.79,FAFARD,ROCIO
+
+Please enter a command:
+2: 2.9461534
+
+Please enter a command:
+
+Please enter a command:

@@ -7,25 +7,30 @@
 // Expected Output: 
 
 // TC-1
-// Tests Requirements: R1, R2, R3
-// Tests if program runs, follows R2, and uses correct command menu
+// Tests Requirements: R1, R2, R3, R13, E1
+// Tests if program runs, follows R2, and uses correct command menu. Also tests if students.txt is found
 // If program runs and prints menu, this test case passes
 
 // TC-2
+// Tests Requirements: R13, E1
+// Tests "gracious" failure to find students.txt
+// If students.txt is not found on program start, Expected Output: File Not Found
+
+// TC-3
 // Tests Requirements: R3, R4
 // short form command name, existing student
 // Expected Output: BEX,TAMESHA,4,105,HANTZ,JED
 
 S: BEX
 
-// TC-3
+// TC-4
 // Tests Requirements: R3, R4
 // short form command name, nonexisting student
 // Expected Output: <empty line>
 
 S: FOXHOVEN
 
-// TC-4
+// TC-5
 // Tests Requirements: R3, R11
 // short form command name, information
 // Expected Output:
@@ -39,21 +44,14 @@ S: FOXHOVEN
 
 I
 
-// TC-5
-// Tests Requirements: R3, R12
-// short form command name, quit command
-// Expected Output: program terminates
-
-Q
-
-// TC-6
+// TC-7
 // Tests Requirements: R3, R5
 // short form command name, existing student with a bus
 // Expected Output: HAVIR,BOBBIE,0
 
 S: HAVIR B
 
-// TC-7
+// TC-8
 // Tests Requirements: R3, R6
 // short form command name, existing teacher
 // Expected Output: 
@@ -66,14 +64,14 @@ S: HAVIR B
 
 T: HANTZ
 
-// TC-8
+// TC-9
 // Tests Requirements: R3, R6
 // short form command name, nonexisting teacher
 // Expected Output: <empty line>
 
 T: BRYAN
 
-// TC-9
+// TC-10
 // Tests Requirements: R3, R7
 // short form command name, students by grade (existing)
 // Expected Output: 
@@ -89,14 +87,14 @@ T: BRYAN
 
 G: 3
 
-// TC-10
+// TC-11
 // Tests Requirements: R3, R7
 // short form command name, students by grade (nonexistent)
 // Expected Output: <empty line>
 
 G: 133
 
-// TC-11
+// TC-12
 // Tests Requirements: R3, R8
 // short form command name, students by bus (existing)
 // Expected Output: 
@@ -115,37 +113,194 @@ G: 133
 
 B: 54
 
-// TC-12
+// TC-13
 // Tests Requirements: R3, R8
 // short form command name, students by bus (nonexistent)
 // Expected Output: <empty line>
 
 B: 1
 
-// TC-13
+// TC-14
 // Tests Requirements: R3, R9
 // short form command name, highest gpa by grade
 // Expected Output: SWEDLUND,SHARRI,55,3.24,FAFARD,ROCIO
 
 G: 3 H
 
-// TC-13
+// TC-15
 // Tests Requirements: R3, R9
 // short form command name, lowest gpa by grade
 // Expected Output: CIGANEK,MANIE,53,2.79,FAFARD,ROCIO
 
 G: 3 L
 
-// TC-14
+// TC-16
 // Tests Requirements: R3, R10
 // short form command name, average gpa by grade
 // Expected Output: 2: 2.9461534
 
 A: 2
 
-// TC-15
+// TC-17
 // Tests Requirements: R3, R10
 // short form command name, average gpa by grade (nonexistent)
 // Expected Output: <empty line>
 
 A: -1
+
+// TC-18
+// Tests Requirements: E1
+// Invalid Command
+// Expected Output: Invalid Command (User is re-prompted for command)
+
+J: 5
+
+// TC-19
+// Tests Requirements: E1
+// Syntax Error (No colon)
+//Expected Output: Command Syntax Error (User ir re-prompted for command)
+
+S GUM
+
+//***********THE REMAINING TESTS (BESIDES THE FINAL QUIT TEST) ARE REDUNDANT AND ONLY SERVE TO TEST THE LONG FORM OF EACH COMMAND NAME*************
+
+// TC-20
+// Tests Requirements: R3, R4
+// long form command name, existing student
+// Expected Output: BEX,TAMESHA,4,105,HANTZ,JED
+
+Student: BEX
+
+// TC-21
+// Tests Requirements: R3, R4
+// long form command name, nonexisting student
+// Expected Output: <empty line>
+
+Student: FOXHOVEN
+
+// TC-22
+// Tests Requirements: R3, R11
+// long form command name, information
+// Expected Output:
+//0: 0
+//1: 2
+//2: 13
+//3: 9
+//4: 15
+//5: 0
+//6: 21
+
+Info
+
+// TC-24
+// Tests Requirements: R3, R5
+// long form command name, existing student with a bus
+// Expected Output: HAVIR,BOBBIE,0
+
+Student: HAVIR B
+
+// TC-25
+// Tests Requirements: R3, R6
+// long form command name, existing teacher
+// Expected Output: 
+//CORKER,CARTER
+//IMMERMAN,DEVIN
+//RAPOSE,ALONZO
+//OGAS,ERVIN
+//MASSART,ELDON
+//BEX,TAMESHA
+
+Teacher: HANTZ
+
+// TC-26
+// Tests Requirements: R3, R6
+// long form command name, nonexisting teacher
+// Expected Output: <empty line>
+
+Teacher: BRYAN
+
+// TC-27
+// Tests Requirements: R3, R7
+// long form command name, students by grade (existing)
+// Expected Output: 
+//OOKUS,XUAN
+//ELHADDAD,SHANTE
+//BRODERSEN,HYE
+//SWEDLUND,SHARRI
+//CIGANEK,MANIE
+//COVINGTON,TOMAS
+//EARLY,TORY
+//LINHART,LELA
+//THEUNISSEN,GRACE
+
+Grade: 3
+
+// TC-28
+// Tests Requirements: R3, R7
+// long form command name, students by grade (nonexistent)
+// Expected Output: <empty line>
+
+Grade: 133
+
+// TC-29
+// Tests Requirements: R3, R8
+// long form command name, students by bus (existing)
+// Expected Output: 
+//OGAS,ERVIN,4,105
+//GUICE,CODI,4,112
+//BREVO,JANNETTE,6,111
+//VANCOTT,MIKE,2,108
+//GLOR,HUNG,4,112
+//SAELEE,DANILO,1,103
+//GUM,NOAH,4,112
+//BERBES,DICK,2,108
+//MULGREW,RANDELL,2,108
+//NOVICK,ROLLAND,4,112
+//THEUNISSEN,GRACE,3,110
+//TOWLEY,LANE,2,108
+
+Bus: 54
+
+// TC-30
+// Tests Requirements: R3, R8
+// long form command name, students by bus (nonexistent)
+// Expected Output: <empty line>
+
+Bus: 1
+
+// TC-31
+// Tests Requirements: R3, R9
+// long form command name, highest gpa by grade
+// Expected Output: SWEDLUND,SHARRI,55,3.24,FAFARD,ROCIO
+
+Grade: 3 High
+
+// TC-32
+// Tests Requirements: R3, R9
+// long form command name, lowest gpa by grade
+// Expected Output: CIGANEK,MANIE,53,2.79,FAFARD,ROCIO
+
+Grade: 3 Low
+
+// TC-33
+// Tests Requirements: R3, R10
+// long form command name, average gpa by grade
+// Expected Output: 2: 2.9461534
+
+Average: 2
+
+// TC-34
+// Tests Requirements: R3, R10
+// long form command name, average gpa by grade (nonexistent)
+// Expected Output: <empty line>
+
+Average: -1
+
+// FINAL TEST TESTS QUIT
+
+// TC-6
+// Tests Requirements: R3, R12
+// short form command name, quit command
+// Expected Output: program terminates
+
+Q

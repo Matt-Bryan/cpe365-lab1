@@ -1,0 +1,31 @@
+S: BEX
+S: FOXHOVEN
+I
+S: HAVIR B
+T: HANTZ
+T: BRYAN
+G: 3
+G: 133
+B: 54
+B: 1
+G: 3 H
+G: 3 L
+A: 2
+A: -1
+J: 5
+S GUM
+Student: BEX
+Student: FOXHOVEN
+Info
+Student: HAVIR B
+Teacher: HANTZ
+Teacher: BRYAN
+Grade: 3
+Grade: 133
+Bus: 54
+Bus: 1
+Grade: 3 High
+Grade: 3 Low
+Average: 2
+Average: -1
+Q
