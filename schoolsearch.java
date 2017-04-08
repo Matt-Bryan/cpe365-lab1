@@ -4,7 +4,8 @@ import java.io.*;
 public class schoolsearch {
 
 	private static ArrayList<ArrayList<String>> data = new ArrayList<ArrayList<String>>();
-	
+   
+   //Traceability: implements requirement R13
 	public static void fileParse() throws FileNotFoundException {
 		Scanner in = new Scanner(new File("students.txt"));
 		while (in.hasNextLine()) {
@@ -20,6 +21,7 @@ public class schoolsearch {
 		in.close();
 	}
 
+	//Traceabililty: implements requirement R11
 	private static void infoPrint() {
 		int grade[] = new int[7];
 
@@ -32,6 +34,7 @@ public class schoolsearch {
 		}
 	}
 
+	//Traceabililty: implements requirements R2, R3
 	private static void printMenu() {
 		System.out.println("Command Menu:");
 		System.out.println("S[tudent]: <lastname> [B[us]]");
@@ -42,7 +45,7 @@ public class schoolsearch {
 		System.out.println("I[nfo]");
 		System.out.println("Q[uit]\n");
 	}
-
+	//Traceabililty: implements requirements R4, R5
 	private static void studentCmd(String[] cmdParts) {
 		ArrayList<ArrayList<String>> results = new ArrayList<ArrayList<String>>();
 		String[] splitString = cmdParts[1].split("\\s+");
@@ -70,6 +73,7 @@ public class schoolsearch {
 			System.out.println("Command Syntax Error");
 	}
 
+	//Traceabililty: implements requirement R9
 	private static ArrayList<String> findGpa(ArrayList<ArrayList<String>> results, int option) {
 		ArrayList<String> curBest = results.get(0);
 
@@ -88,7 +92,8 @@ public class schoolsearch {
 
 		return curBest;
 	}
-	
+
+	//Traceabililty: implements requirement R9
 	private static void gradeCmd(String[] cmdParts) {
 		ArrayList<ArrayList<String>> results = new ArrayList<ArrayList<String>>();
 		String[] splitString = cmdParts[1].split("\\s+");
@@ -127,6 +132,7 @@ public class schoolsearch {
 		}
 	}
 
+	//Traceabililty: implements requirement R10
 	private static float findAvg(ArrayList<ArrayList<String>> results) {
 		float total = 0;
 		int count = 0;
@@ -140,7 +146,7 @@ public class schoolsearch {
 
 		return avg;
 	}
-
+	//Traceabililty: implements requirement R10
 	private static void averageCmd(String[] cmdParts) {
 		ArrayList<ArrayList<String>> results = new ArrayList<ArrayList<String>>();
 
@@ -153,6 +159,7 @@ public class schoolsearch {
 		System.out.println("Average GPA for grade " + cmdParts[1] + ": " + findAvg(results));
 	}
 
+	//Traceabililty: implements requirement R6
 	private static void teacherCmd(String[] cmdParts) {
 		ArrayList<ArrayList<String>> results = new ArrayList<ArrayList<String>>();
 
@@ -167,6 +174,7 @@ public class schoolsearch {
 		}
 	}
 
+	//Traceabililty: implements requirement R8
 	private static void busCmd(String[] cmdParts) {		
 		ArrayList<ArrayList<String>> results = new ArrayList<ArrayList<String>>();
 
@@ -185,6 +193,7 @@ public class schoolsearch {
 		}
 	}
 
+	//Traceabililty: implements requirements R1, R2, R12, E1
 	public static void main(String[] args) {
 		try {
 			fileParse();
@@ -204,6 +213,7 @@ public class schoolsearch {
 			for (int i = 0; i < cmdParts.length; i++)
 				cmdParts[i] = cmdParts[i].trim();
 			if (cmdParts.length == 1) {
+				//Must be either Info or an error
 				if (cmdParts[0].equals("I") || cmdParts[0].equals("Info")) {
 					infoPrint();
 				}
