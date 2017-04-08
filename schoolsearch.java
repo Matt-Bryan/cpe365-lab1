@@ -57,16 +57,12 @@ public class schoolsearch {
 		}
 		if (splitString.length == 2 && (splitString[1].equals("B") || splitString[1].equals("Bus"))) {
 			for (ArrayList<String> cur : results) {
-				System.out.println("Name: " + cur.get(0) + "," + cur.get(1));
-				System.out.println("Bus route: " + cur.get(4));
+				System.out.println(cur.get(0) + "," + cur.get(1) + "," + cur.get(4));
 			}
 		}
 		else if (splitString.length == 1) {
 			for (ArrayList<String> cur : results) {
-				System.out.println("Name: " + cur.get(0) + "," + cur.get(1));
-				System.out.println("Grade: " + cur.get(2));
-				System.out.println("Classroom: " + cur.get(3));
-				System.out.println("Teacher: " + cur.get(6) + "," + cur.get(7));
+				System.out.println(cur.get(0) + "," + cur.get(1) + "," + cur.get(2) + "," + cur.get(3) + "," + cur.get(6) + "," + cur.get(7));
 			}
 		}
 		else
@@ -103,29 +99,22 @@ public class schoolsearch {
 				results.add(cur);
 			}
 		}
+		if (results.isEmpty())
+			return;
 
 		if (splitString.length == 2 && (splitString[1].equals("H") || splitString[1].equals("High"))) {
 			//High
-			ArrayList<String> newRes = findGpa(results, 0);
+			ArrayList<String> cur = findGpa(results, 0);
 
-			System.out.println("Highest GPA in grade " + splitString[0] + ": ");
-			System.out.println("Name: " + newRes.get(0) + "," + newRes.get(1));
-			System.out.println("GPA: " + newRes.get(5));
-			System.out.println("Teacher: " + newRes.get(6) + "," + newRes.get(7));
-			System.out.println("Bus: " + newRes.get(4));
+			System.out.println(cur.get(0) + "," + cur.get(1) + "," + cur.get(4) + "," + cur.get(5) + "," + cur.get(6) + "," + cur.get(7));
 		}
 		else if (splitString.length == 2 && (splitString[1].equals("L") || splitString[1].equals("Low"))) {
 			//Low			
-			ArrayList<String> newRes = findGpa(results, 1);
+			ArrayList<String> cur = findGpa(results, 1);
 
-			System.out.println("Lowest GPA in grade " + splitString[0] + ": ");
-			System.out.println("Name: " + newRes.get(0) + "," + newRes.get(1));
-			System.out.println("GPA: " + newRes.get(5));
-			System.out.println("Teacher: " + newRes.get(6) + "," + newRes.get(7));
-			System.out.println("Bus: " + newRes.get(4));
+			System.out.println(cur.get(0) + "," + cur.get(1) + "," + cur.get(4) + "," + cur.get(5) + "," + cur.get(6) + "," + cur.get(7));
 		}
 		else {
-			System.out.println("List of students: ");
 			for (ArrayList<String> cur : results) {
 				System.out.println(cur.get(0) + "," + cur.get(1));
 			}
@@ -156,7 +145,9 @@ public class schoolsearch {
 			}
 		}
 
-		System.out.println("Average GPA for grade " + cmdParts[1] + ": " + findAvg(results));
+		float avg = findAvg(results);
+		if (!Float.isNaN(avg))
+			System.out.println(cmdParts[1] + ": " + avg);
 	}
 
 	//Traceabililty: implements requirement R6
@@ -168,7 +159,6 @@ public class schoolsearch {
 				results.add(cur);
 			}
 		}
-		System.out.println("List of students: ");
 		for (ArrayList<String> cur : results) {
 			System.out.println(cur.get(0) + "," + cur.get(1));
 		}
@@ -184,12 +174,8 @@ public class schoolsearch {
 			}
 		}
 
-		System.out.println("List of students: ");		
-		
 		for (ArrayList<String> cur : results) {
-			System.out.println("Name: " + cur.get(0) + "," + cur.get(1));
-			System.out.println("Grade: " + cur.get(2));
-			System.out.println("Classroom: " + cur.get(3));
+			System.out.println(cur.get(0) + "," + cur.get(1) + "," + cur.get(2) + "," + cur.get(3));
 		}
 	}
 

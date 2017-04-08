@@ -1,20 +1,151 @@
 // CSC 365. Spring 2017
-// Matt Bryan & Daniel Foxhoven
+// Matt Bryan & Daniel Justin Foxhoven
 // Lab 1-1 Test Suite
 
 // TC-
 // Tests Requirements: 
-// 
 // Expected Output: 
-//
+
 // TC-1
 // Tests Requirements: R1, R2, R3
 // Tests if program runs, follows R2, and uses correct command menu
 // If program runs and prints menu, this test case passes
-//
-// (RUN PROGRAM)
-//
+
 // TC-2
-// Tests Requirements: R4
+// Tests Requirements: R3, R4
 // short form command name, existing student
+// Expected Output: BEX,TAMESHA,4,105,HANTZ,JED
+
+S: BEX
+
+// TC-3
+// Tests Requirements: R3, R4
+// short form command name, nonexisting student
+// Expected Output: <empty line>
+
+S: FOXHOVEN
+
+// TC-4
+// Tests Requirements: R3, R11
+// short form command name, information
+// Expected Output:
+//0: 0
+//1: 2
+//2: 13
+//3: 9
+//4: 15
+//5: 0
+//6: 21
+
+I
+
+// TC-5
+// Tests Requirements: R3, R12
+// short form command name, quit command
+// Expected Output: program terminates
+
+Q
+
+// TC-6
+// Tests Requirements: R3, R5
+// short form command name, existing student with a bus
+// Expected Output: HAVIR,BOBBIE,0
+
+S: HAVIR B
+
+// TC-7
+// Tests Requirements: R3, R6
+// short form command name, existing teacher
 // Expected Output: 
+//CORKER,CARTER
+//IMMERMAN,DEVIN
+//RAPOSE,ALONZO
+//OGAS,ERVIN
+//MASSART,ELDON
+//BEX,TAMESHA
+
+T: HANTZ
+
+// TC-8
+// Tests Requirements: R3, R6
+// short form command name, nonexisting teacher
+// Expected Output: <empty line>
+
+T: BRYAN
+
+// TC-9
+// Tests Requirements: R3, R7
+// short form command name, students by grade (existing)
+// Expected Output: 
+//OOKUS,XUAN
+//ELHADDAD,SHANTE
+//BRODERSEN,HYE
+//SWEDLUND,SHARRI
+//CIGANEK,MANIE
+//COVINGTON,TOMAS
+//EARLY,TORY
+//LINHART,LELA
+//THEUNISSEN,GRACE
+
+G: 3
+
+// TC-10
+// Tests Requirements: R3, R7
+// short form command name, students by grade (nonexistent)
+// Expected Output: <empty line>
+
+G: 133
+
+// TC-11
+// Tests Requirements: R3, R8
+// short form command name, students by bus (existing)
+// Expected Output: 
+//OGAS,ERVIN,4,105
+//GUICE,CODI,4,112
+//BREVO,JANNETTE,6,111
+//VANCOTT,MIKE,2,108
+//GLOR,HUNG,4,112
+//SAELEE,DANILO,1,103
+//GUM,NOAH,4,112
+//BERBES,DICK,2,108
+//MULGREW,RANDELL,2,108
+//NOVICK,ROLLAND,4,112
+//THEUNISSEN,GRACE,3,110
+//TOWLEY,LANE,2,108
+
+B: 54
+
+// TC-12
+// Tests Requirements: R3, R8
+// short form command name, students by bus (nonexistent)
+// Expected Output: <empty line>
+
+B: 1
+
+// TC-13
+// Tests Requirements: R3, R9
+// short form command name, highest gpa by grade
+// Expected Output: SWEDLUND,SHARRI,55,3.24,FAFARD,ROCIO
+
+G: 3 H
+
+// TC-13
+// Tests Requirements: R3, R9
+// short form command name, lowest gpa by grade
+// Expected Output: CIGANEK,MANIE,53,2.79,FAFARD,ROCIO
+
+G: 3 L
+
+// TC-14
+// Tests Requirements: R3, R10
+// short form command name, average gpa by grade
+// Expected Output: 2: 2.9461534
+
+A: 2
+
+// TC-15
+// Tests Requirements: R3, R10
+// short form command name, average gpa by grade (nonexistent)
+// Expected Output: <empty line>
+
+A: -1
