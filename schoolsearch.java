@@ -56,7 +56,27 @@ public class schoolsearch {
 	}
 
 	private static void enrollPrint() {
-		
+		ArrayList<Integer> rooms = new ArrayList<Integer>();
+
+		for (ArrayList<String> cur : teacherData) {
+			Integer curInt = Integer.parseInt(cur.get(2));
+			if (!rooms.contains(curInt))
+				rooms.add(curInt);
+		}
+
+		Collections.sort(rooms);
+		Integer[] roomData = new Integer[rooms.size()];
+		for (int i = 0; i < roomData.length; i++)
+			roomData[i] = 0;
+
+		for (ArrayList<String> cur : studentData) {
+			int index = rooms.indexOf(Integer.parseInt(cur.get(3)));
+			roomData[index]++;
+		}
+
+		for (Integer cur : rooms) {
+			System.out.println(cur + ": " + roomData[rooms.indexOf(cur)]);
+		}
 	}
 
 	//Traceabililty: implements requirement NR2
