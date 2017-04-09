@@ -15,8 +15,12 @@ public class schoolsearch {
 			if (elements.length != 6)
 				continue;
 			ArrayList<String> row = new ArrayList<String>();
-			for (int i = 0; i < elements.length; i++)
-				row.add(elements[i]);
+			for (int i = 0; i < elements.length; i++) {
+				if (i == 1)
+					row.add((elements[i]).trim());
+				else
+					row.add(elements[i]);
+			}
 			studentData.add(row);
 		}
 		in.close();
@@ -27,7 +31,7 @@ public class schoolsearch {
 		Scanner in = new Scanner(new File("teachers.txt"));
 		while (in.hasNextLine()) {
 			String line = in.nextLine();
-			String[] elements = line.split(",");
+			String[] elements = line.split(", ");
 			if (elements.length != 3)
 				continue;
 			ArrayList<String> row = new ArrayList<String>();
@@ -90,7 +94,7 @@ public class schoolsearch {
 		}
 		else if (splitString.length == 1) {
 			for (ArrayList<String> cur : results) {
-				ArrayList<String> teacher = getTeachers(cur.get(3)).get(0);
+				ArrayList<String> teacher = (getTeachers(cur.get(3))).get(0);
 				System.out.println(cur.get(0) + "," + cur.get(1) + "," + cur.get(2) + "," + cur.get(3) + "," + teacher.get(0) + "," + teacher.get(1));
 			}
 		}
