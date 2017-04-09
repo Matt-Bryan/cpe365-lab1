@@ -3,20 +3,37 @@ import java.io.*;
 
 public class schoolsearch {
 
-	private static ArrayList<ArrayList<String>> data = new ArrayList<ArrayList<String>>();
+	private static ArrayList<ArrayList<String>> studentData = new ArrayList<ArrayList<String>>();
+	private static ArrayList<ArrayList<String>> teacherData = new ArrayList<ArrayList<String>>();
    
    //Traceability: implements requirement R13
-	public static void fileParse() throws FileNotFoundException {
-		Scanner in = new Scanner(new File("students.txt"));
+	public static void studentFileParse() throws FileNotFoundException {
+		Scanner in = new Scanner(new File("list.txt"));
 		while (in.hasNextLine()) {
 			String line = in.nextLine();
 			String[] elements = line.split(",");
-			if (elements.length != 8)
+			if (elements.length != 6)
 				continue;
 			ArrayList<String> row = new ArrayList<String>();
 			for (int i = 0; i < elements.length; i++)
 				row.add(elements[i]);
-			data.add(row);
+			studentData.add(row);
+		}
+		in.close();
+	}
+
+   //Traceability: implements requirement R13
+	public static void teacherFileParse() throws FileNotFoundException {
+		Scanner in = new Scanner(new File("teachers.txt"));
+		while (in.hasNextLine()) {
+			String line = in.nextLine();
+			String[] elements = line.split(",");
+			if (elements.length != 3)
+				continue;
+			ArrayList<String> row = new ArrayList<String>();
+			for (int i = 0; i < elements.length; i++)
+				row.add(elements[i]);
+			teacherData.add(row);
 		}
 		in.close();
 	}
@@ -25,13 +42,24 @@ public class schoolsearch {
 	private static void infoPrint() {
 		int grade[] = new int[7];
 
-		for (ArrayList<String> current : data) {
+		for (ArrayList<String> current : studentData) {
 			grade[Integer.parseInt(current.get(2))]++;
 		}
 
 		for (int i = 0; i < 7; i++) {
 			System.out.println(i + ": " + grade[i]);
 		}
+	}
+
+	//Traceabililty: implements requirement NR2
+	private static ArrayList<ArrayList<String>> getTeachers(String room) {
+		ArrayList<ArrayList<String>> result = new ArrayList<ArrayList<String>>();
+		for (ArrayList<String> current : teacherData) {
+			if (current.get(2).equals(room)) {
+				result.add(current);
+			}
+		}
+		return result;
 	}
 
 	//Traceabililty: implements requirements R2, R3
@@ -50,7 +78,7 @@ public class schoolsearch {
 		ArrayList<ArrayList<String>> results = new ArrayList<ArrayList<String>>();
 		String[] splitString = cmdParts[1].split("\\s+");
 
-		for (ArrayList<String> cur : data) {
+		for (ArrayList<String> cur : studentData) {
 			if (splitString[0].equals(cur.get(0))) {
 				results.add(cur);
 			}
@@ -62,7 +90,8 @@ public class schoolsearch {
 		}
 		else if (splitString.length == 1) {
 			for (ArrayList<String> cur : results) {
-				System.out.println(cur.get(0) + "," + cur.get(1) + "," + cur.get(2) + "," + cur.get(3) + "," + cur.get(6) + "," + cur.get(7));
+				ArrayList<String> teacher = getTeachers(cur.get(3)).get(0);
+				System.out.println(cur.get(0) + "," + cur.get(1) + "," + cur.get(2) + "," + cur.get(3) + "," + teacher.get(0) + "," + teacher.get(1));
 			}
 		}
 		else
@@ -94,7 +123,7 @@ public class schoolsearch {
 		ArrayList<ArrayList<String>> results = new ArrayList<ArrayList<String>>();
 		String[] splitString = cmdParts[1].split("\\s+");
 
-		for (ArrayList<String> cur : data) {
+		for (ArrayList<String> cur : studentData) {
 			if (splitString[0].equals(cur.get(2))) {
 				results.add(cur);
 			}
@@ -105,14 +134,16 @@ public class schoolsearch {
 		if (splitString.length == 2 && (splitString[1].equals("H") || splitString[1].equals("High"))) {
 			//High
 			ArrayList<String> cur = findGpa(results, 0);
+			ArrayList<String> teacher = getTeachers(cur.get(3)).get(0);
 
-			System.out.println(cur.get(0) + "," + cur.get(1) + "," + cur.get(4) + "," + cur.get(5) + "," + cur.get(6) + "," + cur.get(7));
+			System.out.println(cur.get(0) + "," + cur.get(1) + "," + cur.get(4) + "," + cur.get(5) + "," + teacher.get(0) + "," + teacher.get(1));
 		}
 		else if (splitString.length == 2 && (splitString[1].equals("L") || splitString[1].equals("Low"))) {
 			//Low			
 			ArrayList<String> cur = findGpa(results, 1);
+			ArrayList<String> teacher = getTeachers(cur.get(3)).get(0);
 
-			System.out.println(cur.get(0) + "," + cur.get(1) + "," + cur.get(4) + "," + cur.get(5) + "," + cur.get(6) + "," + cur.get(7));
+			System.out.println(cur.get(0) + "," + cur.get(1) + "," + cur.get(4) + "," + cur.get(5) + "," + teacher.get(0) + "," + teacher.get(1));
 		}
 		else {
 			for (ArrayList<String> cur : results) {
@@ -139,7 +170,7 @@ public class schoolsearch {
 	private static void averageCmd(String[] cmdParts) {
 		ArrayList<ArrayList<String>> results = new ArrayList<ArrayList<String>>();
 
-		for (ArrayList<String> cur : data) {
+		for (ArrayList<String> cur : studentData) {
 			if (cmdParts[1].equals(cur.get(2))) {
 				results.add(cur);
 			}
@@ -153,9 +184,15 @@ public class schoolsearch {
 	//Traceabililty: implements requirement R6
 	private static void teacherCmd(String[] cmdParts) {
 		ArrayList<ArrayList<String>> results = new ArrayList<ArrayList<String>>();
-
-		for (ArrayList<String> cur : data) {
-			if (cmdParts[1].equals(cur.get(6))) {
+		ArrayList<String> teacher = new ArrayList<String>();
+		for (ArrayList<String> cur : teacherData) {
+			if (cmdParts[1].equals(cur.get(0))) {
+				teacher = cur;
+				break;
+			}
+		}
+		for (ArrayList<String> cur : studentData) {
+			if (teacher.get(2).equals(cur.get(3))) {
 				results.add(cur);
 			}
 		}
@@ -168,7 +205,7 @@ public class schoolsearch {
 	private static void busCmd(String[] cmdParts) {		
 		ArrayList<ArrayList<String>> results = new ArrayList<ArrayList<String>>();
 
-		for (ArrayList<String> cur : data) {
+		for (ArrayList<String> cur : studentData) {
 			if (cmdParts[1].equals(cur.get(4))) {
 				results.add(cur);
 			}
@@ -182,7 +219,8 @@ public class schoolsearch {
 	//Traceabililty: implements requirements R1, R2, R12, E1
 	public static void main(String[] args) {
 		try {
-			fileParse();
+			studentFileParse();
+			teacherFileParse();
 		}
 		catch (FileNotFoundException e) {
 			System.out.println("File not found");
