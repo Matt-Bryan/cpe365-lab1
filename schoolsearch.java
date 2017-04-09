@@ -55,6 +55,10 @@ public class schoolsearch {
 		}
 	}
 
+	private static void enrollPrint() {
+		
+	}
+
 	//Traceabililty: implements requirement NR2
 	private static ArrayList<ArrayList<String>> getTeachers(String room) {
 		ArrayList<ArrayList<String>> result = new ArrayList<ArrayList<String>>();
@@ -71,9 +75,11 @@ public class schoolsearch {
 		System.out.println("Command Menu:");
 		System.out.println("S[tudent]: <lastname> [B[us]]");
 		System.out.println("T[eacher]: <lastname>");
+		System.out.println("C[lassroom]: <number> <S[tudent] | T[eacher]>");
 		System.out.println("B[us]: <number>");
-		System.out.println("G[rade]: <number> [[H[igh]]|[L[ow]]]");
+		System.out.println("G[rade]: <number> [[H[igh]] | [L[ow]] | [T[eacher]]]");
 		System.out.println("A[verage]: <number>");
+		System.out.println("E[nrollments]");
 		System.out.println("I[nfo]");
 		System.out.println("Q[uit]\n");
 	}
@@ -149,6 +155,20 @@ public class schoolsearch {
 
 			System.out.println(cur.get(0) + "," + cur.get(1) + "," + cur.get(4) + "," + cur.get(5) + "," + teacher.get(0) + "," + teacher.get(1));
 		}
+		else if (splitString.length == 2 && (splitString[1].equals("T") || splitString[1].equals("Teacher"))) {
+			//Teacher
+			ArrayList<String> rooms = new ArrayList<String>();
+			for (ArrayList<String> cur : results) {
+				if (!rooms.contains(cur.get(3))) {
+					rooms.add(cur.get(3));
+				}
+			}
+			for (String cur : rooms) {
+				results = getTeachers(cur);
+				for (ArrayList<String> curTeacher : results)
+					System.out.println(curTeacher.get(0) + "," + curTeacher.get(1));
+			}
+		}
 		else {
 			for (ArrayList<String> cur : results) {
 				System.out.println(cur.get(0) + "," + cur.get(1));
@@ -220,6 +240,48 @@ public class schoolsearch {
 		}
 	}
 
+	//Traceability: implements requirements NR1, NR2
+	private static void classroomCmd(String[] cmdParts) {
+		ArrayList<ArrayList<String>> results = new ArrayList<ArrayList<String>>();
+		String[] splitString = cmdParts[1].split("\\s+");
+
+		if (splitString.length == 2 && (splitString[1].equals("S") || splitString[1].equals("Student"))) {
+			//Student
+
+			for (ArrayList<String> cur : studentData) {
+				if (splitString[0].equals(cur.get(3))) {
+					results.add(cur);
+				}
+			}
+			if (results.isEmpty())
+				return;
+
+			for (ArrayList<String> cur : results) {
+				ArrayList<String> teacher = getTeachers(splitString[0]).get(0);
+				System.out.println(cur.get(0) + "," + cur.get(1) + "," + cur.get(4) + "," + cur.get(5) + "," + teacher.get(0) + "," + teacher.get(1));
+			}
+
+		}
+		else if (splitString.length == 2 && (splitString[1].equals("T") || splitString[1].equals("Teacher"))) {
+			//Teacher	
+
+			for (ArrayList<String> cur : teacherData) {
+				if (splitString[0].equals(cur.get(2))) {
+					results.add(cur);
+				}
+			}
+			if (results.isEmpty())
+				return;
+
+			for (ArrayList<String> cur : results) {
+				System.out.println(cur.get(0) + "," + cur.get(1));
+			}
+		}
+		else {
+			System.out.println("Please specify either S[tudent] or T[eacher]");
+		}
+	}
+
 	//Traceabililty: implements requirements R1, R2, R12, E1
 	public static void main(String[] args) {
 		try {
@@ -241,9 +303,12 @@ public class schoolsearch {
 			for (int i = 0; i < cmdParts.length; i++)
 				cmdParts[i] = cmdParts[i].trim();
 			if (cmdParts.length == 1) {
-				//Must be either Info or an error
+				//Must be Info, Enrollments, or an error
 				if (cmdParts[0].equals("I") || cmdParts[0].equals("Info")) {
 					infoPrint();
+				}
+				else if (cmdParts[0].equals("E") || cmdParts[0].equals("Enrollments")) {
+					enrollPrint();
 				}
 				else {
 					System.out.println("Command Syntax Error");
@@ -270,6 +335,10 @@ public class schoolsearch {
 				else if (cmdParts[0].equals("A") || cmdParts[0].equals("Average")) {
 					//Average
 					averageCmd(cmdParts);
+				}
+				else if (cmdParts[0].equals("C") || cmdParts[0].equals("Classroom")) {
+					//Classroom
+					classroomCmd(cmdParts);
 				}
 				else {
 					System.out.println("Invalid Command");
