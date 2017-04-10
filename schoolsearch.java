@@ -55,6 +55,7 @@ public class schoolsearch {
 		}
 	}
 
+	//Traceability: implements requirement NR4
 	private static void enrollPrint() {
 		ArrayList<Integer> rooms = new ArrayList<Integer>();
 
@@ -248,6 +249,8 @@ public class schoolsearch {
 				break;
 			}
 		}
+		if (teacher.size() == 0)
+			return;
 		for (ArrayList<String> cur : studentData) {
 			if (teacher.get(2).equals(cur.get(3))) {
 				results.add(cur);
