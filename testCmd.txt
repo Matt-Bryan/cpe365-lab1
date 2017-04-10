@@ -14,6 +14,18 @@ A: 2
 A: -1
 J: 5
 S GUM
+C: 103 S
+C: 1 S
+C: 103 T
+C: 1 T
+G -: 3 T
+E
+T: HANTZ A
+B: 55 A
+G: 4 A
+T: 123 A
+B: 123 A
+G: 123 A
 Student: BEX
 Student: FOXHOVEN
 Info
@@ -28,4 +40,17 @@ Grade: 3 High
 Grade: 3 Low
 Average: 2
 Average: -1
+Classroom: 103 Student
+Classroom: 1 Student
+Classroom: 103 Teacher
+Classroom: 1 Teacher
+Grade: 3 Teacher
+Grade: -1 Teacher
+Enrollments
+T: HANTZ Analytics
+B: 55 Analytics
+G: 4 Analytics
+T: 123 Analytics
+B: 123 Analytics
+G: 123 Analytics
 Q

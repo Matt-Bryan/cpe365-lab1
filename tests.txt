@@ -228,23 +228,65 @@ G: -1 T
 
 E
 
+// TC-27
+// Tests Requirements: NR5
+// short form command name, analytics
+// Expected Output: 3.12,2.78,3.12,2.84,2.8,2.82
+
+T: HANTZ A
+
+// TC-28
+// Tests Requirements: NR5
+// short form command name, analytics
+// Expected Output: 3.24,3.15,2.88,3.1,2.76,2.93,2.82,3.22,3.23
+
+B: 55 A
+
+// TC-29
+// Tests Requirements: NR5
+// short form command name, analytics
+// Expected Output: 3.12,2.78,3.12,2.99,2.84,3.1,2.98,2.87,2.95,2.8,2.97,2.91,2.82,3.02,3
+
+G: 4 A
+
+// TC-30
+// Tests Requirements: NR5
+// short form command name, invalid analytics
+// Expected Output: <empty line>
+
+T: 123 A
+
+// TC-31
+// Tests Requirements: NR5
+// short form command name, invalid analytics
+// Expected Output: <empty line>
+
+B: 123 A
+
+// TC-32
+// Tests Requirements: NR5
+// short form command name, invalid analytics
+// Expected Output: <empty line>
+
+G: 123 A
+
 //***********THE REMAINING TESTS (BESIDES THE FINAL QUIT TEST) ARE REDUNDANT AND ONLY SERVE TO TEST THE LONG FORM OF EACH COMMAND NAME*************
 
-// TC-20
+// TC-33
 // Tests Requirements: R3, R4
 // long form command name, existing student
 // Expected Output: BEX,TAMESHA,4,105,HANTZ,JED
 
 Student: BEX
 
-// TC-21
+// TC-34
 // Tests Requirements: R3, R4
 // long form command name, nonexisting student
 // Expected Output: <empty line>
 
 Student: FOXHOVEN
 
-// TC-22
+// TC-35
 // Tests Requirements: R3, R11
 // long form command name, information
 // Expected Output:
@@ -258,14 +300,14 @@ Student: FOXHOVEN
 
 Info
 
-// TC-24
+// TC-36
 // Tests Requirements: R3, R5
 // long form command name, existing student with a bus
 // Expected Output: HAVIR,BOBBIE,0
 
 Student: HAVIR B
 
-// TC-25
+// TC-37
 // Tests Requirements: R3, R6
 // long form command name, existing teacher
 // Expected Output: 
@@ -278,14 +320,14 @@ Student: HAVIR B
 
 Teacher: HANTZ
 
-// TC-26
+// TC-38
 // Tests Requirements: R3, R6
 // long form command name, nonexisting teacher
 // Expected Output: <empty line>
 
 Teacher: BRYAN
 
-// TC-27
+// TC-39
 // Tests Requirements: R3, R7
 // long form command name, students by grade (existing)
 // Expected Output: 
@@ -301,14 +343,14 @@ Teacher: BRYAN
 
 Grade: 3
 
-// TC-28
+// TC-40
 // Tests Requirements: R3, R7
 // long form command name, students by grade (nonexistent)
 // Expected Output: <empty line>
 
 Grade: 133
 
-// TC-29
+// TC-41
 // Tests Requirements: R3, R8
 // long form command name, students by bus (existing)
 // Expected Output: 
@@ -327,42 +369,42 @@ Grade: 133
 
 Bus: 54
 
-// TC-30
+// TC-42
 // Tests Requirements: R3, R8
 // long form command name, students by bus (nonexistent)
 // Expected Output: <empty line>
 
 Bus: 1
 
-// TC-31
+// TC-43
 // Tests Requirements: R3, R9
 // long form command name, highest gpa by grade
 // Expected Output: SWEDLUND,SHARRI,55,3.24,FAFARD,ROCIO
 
 Grade: 3 High
 
-// TC-32
+// TC-44
 // Tests Requirements: R3, R9
 // long form command name, lowest gpa by grade
 // Expected Output: CIGANEK,MANIE,53,2.79,FAFARD,ROCIO
 
 Grade: 3 Low
 
-// TC-33
+// TC-45
 // Tests Requirements: R3, R10
 // long form command name, average gpa by grade
 // Expected Output: 2: 2.9461534
 
 Average: 2
 
-// TC-34
+// TC-46
 // Tests Requirements: R3, R10
 // long form command name, average gpa by grade (nonexistent)
 // Expected Output: <empty line>
 
 Average: -1
 
-// TC-35
+// TC-47
 // Tests Requirements: NR1
 // long form command name, students by classroom
 // Expected Output: 
@@ -371,14 +413,14 @@ Average: -1
 
 Classroom: 103 Student
 
-// TC-36
+// TC-48
 // Tests Requirements: NR1
 // long form command name, students by classroom (nonexistent)
 // Expected Output: <empty line>
 
 Classroom: 1 Student
 
-// TC-37
+// TC-49
 // Tests Requirements: NR2
 // long form command name, teachers by classroom
 // Expected Output:
@@ -386,14 +428,14 @@ Classroom: 1 Student
 
 Classroom: 103 Teacher
 
-// TC-38
+// TC-50
 // Tests Requirements: NR2
 // long form command name, teachers by classroom (nonexistent)
 // Expected Output: <empty line>
 
 Classroom: 1 Teacher
 
-// TC-39
+// TC-51
 // Tests Requirements: NR3
 // long form command name, teachers by grade
 // Expected Output:
@@ -402,14 +444,14 @@ Classroom: 1 Teacher
 
 Grade: 3 Teacher
 
-// TC-40
+// TC-52
 // Tests Requirements: NR3
 // long form command name, teachers by grade (nonexistent)
 // Expected Output: <empty line>
 
 Grade: -1 Teacher
 
-// TC-41
+// TC-53
 // Tests Requirements: NR4
 // long form command name, enrollments
 // Expected Output:
@@ -428,9 +470,51 @@ Grade: -1 Teacher
 
 Enrollments
 
+// TC-54
+// Tests Requirements: NR5
+// short form command name, long form analytics
+// Expected Output: 3.12,2.78,3.12,2.84,2.8,2.82
+
+T: HANTZ Analytics
+
+// TC-55
+// Tests Requirements: NR5
+// short form command name, long form analytics
+// Expected Output: 3.24,3.15,2.88,3.1,2.76,2.93,2.82,3.22,3.23
+
+B: 55 Analytics
+
+// TC-56
+// Tests Requirements: NR5
+// short form command name, long form analytics
+// Expected Output: 3.12,2.78,3.12,2.99,2.84,3.1,2.98,2.87,2.95,2.8,2.97,2.91,2.82,3.02,3
+
+G: 4 Analytics
+
+// TC-57
+// Tests Requirements: NR5
+// short form command name, long form invalid analytics
+// Expected Output: <empty line>
+
+T: 123 Analytics
+
+// TC-58
+// Tests Requirements: NR5
+// short form command name, long form invalid analytics
+// Expected Output: <empty line>
+
+B: 123 Analytics
+
+// TC-59
+// Tests Requirements: NR5
+// short form command name, long form invalid analytics
+// Expected Output: <empty line>
+
+G: 123 Analytics
+
 // FINAL TEST TESTS QUIT
 
-// TC-6
+// TC-60
 // Tests Requirements: R3, R12
 // short form command name, quit command
 // Expected Output: program terminates

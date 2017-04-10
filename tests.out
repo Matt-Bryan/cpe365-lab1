@@ -1,9 +1,11 @@
 Command Menu:
 S[tudent]: <lastname> [B[us]]
-T[eacher]: <lastname>
-B[us]: <number>
-G[rade]: <number> [[H[igh]]|[L[ow]]]
+T[eacher]: <lastname> [A[nalytics]]
+C[lassroom]: <number> <S[tudent] | T[eacher]>
+B[us]: <number> [A[nalytics]]
+G[rade]: <number> [[H[igh]] | [L[ow]] | [T[eacher]] | [A[nalytics]]]
 A[verage]: <number>
+E[nrollments]
 I[nfo]
 Q[uit]
 
@@ -35,7 +37,7 @@ BEX,TAMESHA
 Please enter a command:
 
 Please enter a command:
-OOKUS,XUAN
+COOKUS,XUAN
 ELHADDAD,SHANTE
 BRODERSEN,HYE
 SWEDLUND,SHARRI
@@ -81,6 +83,49 @@ Please enter a command:
 Command Syntax Error
 
 Please enter a command:
+SAELEE,DANILO,54,2.85,FALKER,ADOLPH
+GARTH,JOHN,0,3.14,FALKER,ADOLPH
+
+Please enter a command:
+
+Please enter a command:
+FALKER,ADOLPH
+
+Please enter a command:
+
+Please enter a command:
+Invalid Command
+
+Please enter a command:
+101: 1
+102: 5
+103: 2
+104: 2
+105: 6
+106: 2
+107: 7
+108: 11
+109: 5
+110: 2
+111: 9
+112: 8
+
+Please enter a command:
+3.12,2.78,3.12,2.84,2.8,2.82
+
+Please enter a command:
+3.24,3.15,2.88,3.1,2.76,2.93,2.82,3.22,3.23
+
+Please enter a command:
+3.12,2.78,3.12,2.99,2.84,3.1,2.98,2.87,2.95,2.8,2.97,2.91,2.82,3.02,3
+
+Please enter a command:
+
+Please enter a command:
+
+Please enter a command:
+
+Please enter a command:
 BEX,TAMESHA,4,105,HANTZ,JED
 
 Please enter a command:
@@ -108,7 +153,7 @@ BEX,TAMESHA
 Please enter a command:
 
 Please enter a command:
-OOKUS,XUAN
+COOKUS,XUAN
 ELHADDAD,SHANTE
 BRODERSEN,HYE
 SWEDLUND,SHARRI
@@ -144,6 +189,52 @@ CIGANEK,MANIE,53,2.79,FAFARD,ROCIO
 
 Please enter a command:
 2: 2.9461534
+
+Please enter a command:
+
+Please enter a command:
+SAELEE,DANILO,54,2.85,FALKER,ADOLPH
+GARTH,JOHN,0,3.14,FALKER,ADOLPH
+
+Please enter a command:
+
+Please enter a command:
+FALKER,ADOLPH
+
+Please enter a command:
+
+Please enter a command:
+FAFARD,ROCIO
+ALPERT,JONATHAN
+
+Please enter a command:
+
+Please enter a command:
+101: 1
+102: 5
+103: 2
+104: 2
+105: 6
+106: 2
+107: 7
+108: 11
+109: 5
+110: 2
+111: 9
+112: 8
+
+Please enter a command:
+3.12,2.78,3.12,2.84,2.8,2.82
+
+Please enter a command:
+3.24,3.15,2.88,3.1,2.76,2.93,2.82,3.22,3.23
+
+Please enter a command:
+3.12,2.78,3.12,2.99,2.84,3.1,2.98,2.87,2.95,2.8,2.97,2.91,2.82,3.02,3
+
+Please enter a command:
+
+Please enter a command:
 
 Please enter a command:
 

@@ -196,7 +196,7 @@ public class schoolsearch {
 				gpa.add(cur.get(5));
 			}
 			for (int i = 0; i < gpa.size()-1; i++) {
-				System.out.print(gpa.get(i) + ", ");
+				System.out.print(gpa.get(i) + ",");
 			}
 			if (gpa.size() > 0)
 				System.out.println(gpa.get(gpa.size()-1));
@@ -262,7 +262,7 @@ public class schoolsearch {
 				gpa.add(cur.get(5));
 			}
 			for (int i = 0; i < gpa.size()-1; i++) {
-				System.out.print(gpa.get(i) + ", ");
+				System.out.print(gpa.get(i) + ",");
 			}
 			if (gpa.size() > 0)
 				System.out.println(gpa.get(gpa.size()-1));
@@ -294,7 +294,7 @@ public class schoolsearch {
 				gpa.add(cur.get(5));
 			}
 			for (int i = 0; i < gpa.size()-1; i++) {
-				System.out.print(gpa.get(i) + ", ");
+				System.out.print(gpa.get(i) + ",");
 			}
 			if (gpa.size() > 0)
 				System.out.println(gpa.get(gpa.size()-1));
