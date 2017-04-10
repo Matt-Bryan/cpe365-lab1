@@ -94,10 +94,10 @@ public class schoolsearch {
 	private static void printMenu() {
 		System.out.println("Command Menu:");
 		System.out.println("S[tudent]: <lastname> [B[us]]");
-		System.out.println("T[eacher]: <lastname>");
+		System.out.println("T[eacher]: <lastname> [A[nalytics]]");
 		System.out.println("C[lassroom]: <number> <S[tudent] | T[eacher]>");
-		System.out.println("B[us]: <number>");
-		System.out.println("G[rade]: <number> [[H[igh]] | [L[ow]] | [T[eacher]]]");
+		System.out.println("B[us]: <number> [A[nalytics]]");
+		System.out.println("G[rade]: <number> [[H[igh]] | [L[ow]] | [T[eacher]] | [A[nalytics]]]");
 		System.out.println("A[verage]: <number>");
 		System.out.println("E[nrollments]");
 		System.out.println("I[nfo]");
@@ -148,7 +148,7 @@ public class schoolsearch {
 		return curBest;
 	}
 
-	//Traceabililty: implements requirement R9
+	//Traceabililty: implements requirement R9, NR5
 	private static void gradeCmd(String[] cmdParts) {
 		ArrayList<ArrayList<String>> results = new ArrayList<ArrayList<String>>();
 		String[] splitString = cmdParts[1].split("\\s+");
@@ -189,6 +189,17 @@ public class schoolsearch {
 					System.out.println(curTeacher.get(0) + "," + curTeacher.get(1));
 			}
 		}
+		else if (splitString.length == 2 && (splitString[1].equals("A") || splitString[1].equals("Analytics"))) {
+			ArrayList<String> gpa = new ArrayList<String>();
+			for (ArrayList<String> cur : results) {
+				gpa.add(cur.get(5));
+			}
+			for (int i = 0; i < gpa.size()-1; i++) {
+				System.out.print(gpa.get(i) + ", ");
+			}
+			if (gpa.size() > 0)
+				System.out.println(gpa.get(gpa.size()-1));
+		}
 		else {
 			for (ArrayList<String> cur : results) {
 				System.out.println(cur.get(0) + "," + cur.get(1));
@@ -225,12 +236,14 @@ public class schoolsearch {
 			System.out.println(cmdParts[1] + ": " + avg);
 	}
 
-	//Traceabililty: implements requirement R6
+	//Traceabililty: implements requirement R6, NR5
 	private static void teacherCmd(String[] cmdParts) {
 		ArrayList<ArrayList<String>> results = new ArrayList<ArrayList<String>>();
 		ArrayList<String> teacher = new ArrayList<String>();
+		String[] splitString = cmdParts[1].split("\\s+");
+
 		for (ArrayList<String> cur : teacherData) {
-			if (cmdParts[1].equals(cur.get(0))) {
+			if (splitString[0].equals(cur.get(0))) {
 				teacher = cur;
 				break;
 			}
@@ -240,23 +253,56 @@ public class schoolsearch {
 				results.add(cur);
 			}
 		}
-		for (ArrayList<String> cur : results) {
-			System.out.println(cur.get(0) + "," + cur.get(1));
+		if (splitString.length == 2 && (splitString[1].equals("A") || splitString[1].equals("Analytics"))) {
+			ArrayList<String> gpa = new ArrayList<String>();
+			for (ArrayList<String> cur : results) {
+				gpa.add(cur.get(5));
+			}
+			for (int i = 0; i < gpa.size()-1; i++) {
+				System.out.print(gpa.get(i) + ", ");
+			}
+			if (gpa.size() > 0)
+				System.out.println(gpa.get(gpa.size()-1));
+		}
+		else if (splitString.length == 2) {
+			System.out.println("Command Syntax Error");
+		}
+		else {
+			for (ArrayList<String> cur : results) {
+				System.out.println(cur.get(0) + "," + cur.get(1));
+			}
 		}
 	}
 
-	//Traceabililty: implements requirement R8
+	//Traceabililty: implements requirement R8, NR5
 	private static void busCmd(String[] cmdParts) {		
 		ArrayList<ArrayList<String>> results = new ArrayList<ArrayList<String>>();
+		String[] splitString = cmdParts[1].split("\\s+");
 
 		for (ArrayList<String> cur : studentData) {
-			if (cmdParts[1].equals(cur.get(4))) {
+			if (splitString[0].equals(cur.get(4))) {
 				results.add(cur);
 			}
 		}
 
-		for (ArrayList<String> cur : results) {
-			System.out.println(cur.get(0) + "," + cur.get(1) + "," + cur.get(2) + "," + cur.get(3));
+		if (splitString.length == 2 && (splitString[1].equals("A") || splitString[1].equals("Analytics"))) {
+			ArrayList<String> gpa = new ArrayList<String>();
+			for (ArrayList<String> cur : results) {
+				gpa.add(cur.get(5));
+			}
+			for (int i = 0; i < gpa.size()-1; i++) {
+				System.out.print(gpa.get(i) + ", ");
+			}
+			if (gpa.size() > 0)
+				System.out.println(gpa.get(gpa.size()-1));
+		}
+		else if (splitString.length == 2) {
+			System.out.println("Command Syntax Error");
+		}
+		else {
+			for (ArrayList<String> cur : results) {
+				System.out.println(cur.get(0) + "," + cur.get(1) + "," + cur.get(2) + "," + cur.get(3));
+			}
 		}
 	}
 
