@@ -9,25 +9,25 @@ After running the program, proceed by following on-screen instructions.
 
 Commands added for part 2:
 
-C[lassroom]: S[tudent] | T[eacher]
+C[lassroom]: <number> S[tudent] | T[eacher]
 
 	Use this command with S[tudent] to get a list of all students assigned to this room (NR1)
 
 	Use this command with T[eacher] to get a list of all teachers who teach in this room (NR2)
 
-G[rade]: T[eacher]
+G[rade]: <number> T[eacher]
 
 	Use the G[rade] command with the T[eacher] option to get a list of all teachers who teach this grade (NR3)
 
-G[rade]: A[nalytics]
+G[rade]: <number> A[nalytics]
 
 	Use the G[rade] command with the A[nalytics] option to get a list of student GPAs for a particular grade (NR5)
 
-B[us]: A[nalytics]
+B[us]: <number> A[nalytics]
 
 	Use the B[us] command with the A[nalytics] option to get a list of student GPAs for a particular bus route (NR5)
 
-T[eacher]: A[nalytics]
+T[eacher]: <lastname> A[nalytics]
 
 	Use the T[eacher] command with the A[nalytics] option to get a list of student GPAs for a particular teacher (NR5)
 
