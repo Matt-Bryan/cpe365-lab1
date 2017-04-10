@@ -21,15 +21,15 @@ G[rade]: T[eacher]
 
 G[rade]: A[nalytics]
 
-	Use the G[rade] command with the A[nalytics] option to get a list of student GPAs for a particular grade
+	Use the G[rade] command with the A[nalytics] option to get a list of student GPAs for a particular grade (NR5)
 
 B[us]: A[nalytics]
 
-	Use the B[us] command with the A[nalytics] option to get a list of student GPAs for a particular bus route
+	Use the B[us] command with the A[nalytics] option to get a list of student GPAs for a particular bus route (NR5)
 
 T[eacher]: A[nalytics]
 
-	Use the T[eacher] command with the A[nalytics] option to get a list of student GPAs for a particular teacher
+	Use the T[eacher] command with the A[nalytics] option to get a list of student GPAs for a particular teacher (NR5)
 
 E[nrollments]
 
