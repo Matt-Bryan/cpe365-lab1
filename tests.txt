@@ -162,6 +162,72 @@ J: 5
 
 S GUM
 
+// TC-20
+// Tests Requirements: NR1
+// short form command name, students by classroom
+// Expected Output: 
+//SAELEE, DANILO,1,103,54,2.85
+//GARTH, JOHN,1,103,0,3.14
+
+C: 103 S
+
+// TC-21
+// Tests Requirements: NR1
+// short form command name, students by classroom (nonexistent)
+// Expected Output: <empty line>
+
+C: 1 S
+
+// TC-22
+// Tests Requirements: NR2
+// short form command name, teachers by classroom
+// Expected Output:
+//FALKER,ADOLPH
+
+C: 103 T
+
+// TC-23
+// Tests Requirements: NR2
+// short form command name, teachers by classroom (nonexistent)
+// Expected Output: <empty line>
+
+C: 1 T
+
+// TC-24
+// Tests Requirements: NR3
+// short form command name, teachers by grade
+// Expected Output:
+//FAFARD,ROCIO
+//ALPERT,JONATHAN
+
+G: 3 T
+
+// TC-25
+// Tests Requirements: NR3
+// short form command name, teachers by grade (nonexistent)
+// Expected Output: <empty line>
+
+G: -1 T
+
+// TC-26
+// Tests Requirements: NR4
+// short form command name, enrollments
+// Expected Output:
+//101: 1
+//102: 5
+//103: 2
+//104: 2
+//105: 6
+//106: 2
+//107: 7
+//108: 11
+//109: 5
+//110: 2
+//111: 9
+//112: 8
+
+E
+
 //***********THE REMAINING TESTS (BESIDES THE FINAL QUIT TEST) ARE REDUNDANT AND ONLY SERVE TO TEST THE LONG FORM OF EACH COMMAND NAME*************
 
 // TC-20
@@ -295,6 +361,72 @@ Average: 2
 // Expected Output: <empty line>
 
 Average: -1
+
+// TC-35
+// Tests Requirements: NR1
+// long form command name, students by classroom
+// Expected Output: 
+//SAELEE, DANILO,1,103,54,2.85
+//GARTH, JOHN,1,103,0,3.14
+
+Classroom: 103 Student
+
+// TC-36
+// Tests Requirements: NR1
+// long form command name, students by classroom (nonexistent)
+// Expected Output: <empty line>
+
+Classroom: 1 Student
+
+// TC-37
+// Tests Requirements: NR2
+// long form command name, teachers by classroom
+// Expected Output:
+//FALKER,ADOLPH
+
+Classroom: 103 Teacher
+
+// TC-38
+// Tests Requirements: NR2
+// long form command name, teachers by classroom (nonexistent)
+// Expected Output: <empty line>
+
+Classroom: 1 Teacher
+
+// TC-39
+// Tests Requirements: NR3
+// long form command name, teachers by grade
+// Expected Output:
+//FAFARD,ROCIO
+//ALPERT,JONATHAN
+
+Grade: 3 Teacher
+
+// TC-40
+// Tests Requirements: NR3
+// long form command name, teachers by grade (nonexistent)
+// Expected Output: <empty line>
+
+Grade: -1 Teacher
+
+// TC-41
+// Tests Requirements: NR4
+// long form command name, enrollments
+// Expected Output:
+//101: 1
+//102: 5
+//103: 2
+//104: 2
+//105: 6
+//106: 2
+//107: 7
+//108: 11
+//109: 5
+//110: 2
+//111: 9
+//112: 8
+
+Enrollments
 
 // FINAL TEST TESTS QUIT
 
