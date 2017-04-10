@@ -19,6 +19,18 @@ G[rade]: T[eacher]
 
 	Use the G[rade] command with the T[eacher] option to get a list of all teachers who teach this grade (NR3)
 
+G[rade]: A[nalytics]
+
+	Use the G[rade] command with the A[nalytics] option to get a list of student GPAs for a particular grade
+
+B[us]: A[nalytics]
+
+	Use the B[us] command with the A[nalytics] option to get a list of student GPAs for a particular bus route
+
+T[eacher]: A[nalytics]
+
+	Use the T[eacher] command with the A[nalytics] option to get a list of student GPAs for a particular teacher
+
 E[nrollments]
 
 	Use this command to get a list of all classrooms and the total number of students assigned to them (NR4)
